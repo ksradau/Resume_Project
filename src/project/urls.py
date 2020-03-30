@@ -44,8 +44,56 @@ def view_photo(rb):
 
 def view_js_jquery(r):
     index = here.parent.parent / "js/jquery-1.4.4.min.js"
-    with index.open() as f:
-        return HttpResponse(f.read())
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_slider(r):
+    index = here.parent.parent / "js/jquery.bxSlider.min.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_vtip(r):
+    index = here.parent.parent / "js/vtip.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_cufon(r):
+    index = here.parent.parent / "js/cufon-yui.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_Dill(r):
+    index = here.parent.parent / "js/DilleniaUPC_400.font.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_Orator(r):
+    index = here.parent.parent / "js/Orator_Std_400.font.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_bgpos(r):
+    index = here.parent.parent / "js/jquery.bgpos.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_init(r):
+    index = here.parent.parent / "js/init.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
+
+
+def view_js_form(r):
+    index = here.parent.parent / "js/jquery.form.js"
+    with index.open("r") as f:
+        return HttpResponse(f.read(), content_type="text/javascript")
 
 
 urlpatterns = [
@@ -57,6 +105,15 @@ urlpatterns = [
     path('css/reset.css', view_css_reset),
     path('images/J1HxsPhMYG0_2.jpg', view_photo),
     path('js/jquery-1.4.4.min.js', view_js_jquery),
+    path('js/jquery.bxSlider.min.js', view_js_slider),
+    path('js/vtip.js', view_js_vtip),
+    path('js/cufon-yui.js', view_js_cufon),
+    path('js/DilleniaUPC_400.font.js', view_js_Dill),
+    path('js/Orator_Std_400.font.js', view_js_Orator),
+    path('js/jquery.bgpos.js', view_js_bgpos),
+    path('js/init.js', view_js_init),
+    path('js/jquery.form.js', view_js_form),
+
 
 
 ]

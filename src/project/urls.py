@@ -7,93 +7,69 @@ here = Path(__file__).parent.resolve()
 
 
 def view(r):
-    index = here.parent.parent / "index.html"
-    with index.open("r") as f:
-        return HttpResponse(f.read())
+    return read_static("index.html", "text/html")
 
 
 def view_css_style(r):
-    index = here.parent.parent / "css/style.css"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/css")
+    return read_static("css/style.css", "text/css")
 
 
 def view_css_print(r):
-    index = here.parent.parent / "css/print.css"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/css")
+    return read_static("css/print.css", "text/css")
 
 
 def view_css_typography(r):
-    index = here.parent.parent / "css/typography.css"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/css")
+    return read_static("css/typography.css", "text/css")
 
 
 def view_css_reset(r):
-    index = here.parent.parent / "css/reset.css"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/css")
-
-
-def view_photo(rb):
-    index = here.parent.parent / "images/J1HxsPhMYG0_2.jpg"
-    with index.open("rb") as f:
-        return HttpResponse(f.read())
+    return read_static("css/reset.css", "text/css")
 
 
 def view_js_jquery(r):
-    index = here.parent.parent / "js/jquery-1.4.4.min.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/jquery-1.4.4.min.js", "text/javascript")
 
 
 def view_js_slider(r):
-    index = here.parent.parent / "js/jquery.bxSlider.min.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/jquery.bxSlider.min.js", "text/javascript")
 
 
 def view_js_vtip(r):
-    index = here.parent.parent / "js/vtip.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/vtip.js", "text/javascript")
 
 
 def view_js_cufon(r):
-    index = here.parent.parent / "js/cufon-yui.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/cufon-yui.js", "text/javascript")
 
 
 def view_js_Dill(r):
-    index = here.parent.parent / "js/DilleniaUPC_400.font.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/DilleniaUPC_400.font.js", "text/javascript")
 
 
 def view_js_Orator(r):
-    index = here.parent.parent / "js/Orator_Std_400.font.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/Orator_Std_400.font.js", "text/javascript")
 
 
 def view_js_bgpos(r):
-    index = here.parent.parent / "js/jquery.bgpos.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/jquery.bgpos.js", "text/javascript")
 
 
 def view_js_init(r):
-    index = here.parent.parent / "js/init.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/init.js", "text/javascript")
 
 
 def view_js_form(r):
-    index = here.parent.parent / "js/jquery.form.js"
-    with index.open("r") as f:
-        return HttpResponse(f.read(), content_type="text/javascript")
+    return read_static("js/jquery.form.js", "text/javascript")
+
+
+def view_photo(rb):
+    return read_static("images/J1HxsPhMYG0_2.jpg", "image/jpeg", "rb")
+
+
+def read_static(stat_url, content, method="r"):
+    index = here.parent.parent / stat_url
+    with index.open(method) as f:
+        return HttpResponse(f.read(), content_type=content)
 
 
 urlpatterns = [
@@ -113,7 +89,4 @@ urlpatterns = [
     path('js/jquery.bgpos.js', view_js_bgpos),
     path('js/init.js', view_js_init),
     path('js/jquery.form.js', view_js_form),
-
-
-
 ]

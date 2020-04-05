@@ -10,7 +10,7 @@
 
 <body>
 <header>
-    <img src="/static/logo.jpg" alt="Logo"/>
+    <img src="/static/logo.jpg" alt="Logo" width="50px"/>
     <nav>
         <ul>
 			{% with request.resolver_match.url_name as url_name %}
@@ -26,7 +26,6 @@
 <main>
     <h1>{% block header %}{% endblock %}</h1>
 
-    <main>
         {% block main %}{% endblock %}
     </main>
 

@@ -1,8 +1,6 @@
 
 from pathlib import Path
 
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 PROJECT_DIR = Path(__file__).parent.resolve() #project url
 BASE_DIR = PROJECT_DIR.parent.resolve()  #src url
 REPO_DIR = BASE_DIR.parent.resolve()  #repository url
@@ -43,7 +41,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            PROJECT_DIR / "templates"
+            PROJECT_DIR / "templates",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -93,5 +91,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATICFILES_DIRS = [
+    PROJECT_DIR / "static",
+]
+
+STATIC_ROOT = REPO_DIR / ".static"
 
 STATIC_URL = '/static/'

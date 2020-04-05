@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Ekaterina Sushko Personal and Contact Info{% endblock %}
+
+{% block header %}Personal and Contact Info{% endblock %}
+
+{% block main %}
+
+            <ul>
+                <li>sushei.ekaterina@gmail.com</li>
+                <li>+375295929441</li>
+                <li>Minsk, Belarus</li>
+            </ul>
+<form>
+                        <input type="text" name="Name" id="name" value="Name"/>
+                        <input type="text" name="Email" id="email" value="Email"/>
+                        <input type="text" name="Subject" id="subject" value="Subject"/>
+                        <textarea name="Message" rows="5" cols="25" id="message_input"></textarea>
+                <button>Send Message</button>
+            </form>
+
+{% endblock %}

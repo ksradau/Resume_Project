@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.contrib import admin
 from django.urls import path, re_path
 from pathlib import Path
+from django.shortcuts import render
+
 
 here = Path(__file__).parent.resolve()
 

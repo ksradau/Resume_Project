@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from pathlib import Path
 
 here = Path(__file__).parent.resolve()
@@ -89,4 +89,5 @@ urlpatterns = [
     path('js/jquery.bgpos.js', view_js_bgpos),
     path('js/init.js', view_js_init),
     path('js/jquery.form.js', view_js_form),
+
 ]

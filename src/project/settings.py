@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -40,6 +41,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        #тут рендер ищет имена
         'DIRS': [
             PROJECT_DIR / "templates",
         ],
@@ -92,9 +94,9 @@ USE_L10N = True
 USE_TZ = True
 
 STATICFILES_DIRS = [
-    PROJECT_DIR / "static",
+    PROJECT_DIR / "static", #где джанге брать статику
 ]
 
-STATIC_ROOT = REPO_DIR / ".static"
+STATIC_ROOT = REPO_DIR / ".static"  #куда соберется вся статика после команды collectstatic - папка создается. типа в джанге куча статики в разных местах и разных приложениях,
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' #путь от которого все отсчитывается на разных сервисах

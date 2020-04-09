@@ -5,28 +5,27 @@
 
 <head>
     <meta charset="utf-8">
-    <!--<link href="/static/style.css" rel="stylesheet" type="text/css">
-    <link href="/static/favicon.png" rel="shortcut icon" type="image/png"/>-->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'favicon.png' %}" rel="shortcut icon" type="image/png"/>
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
+<div class="marg">
 <header>
-    <img src="{% static 'logo.jpg' %}" alt="Logo" width="50px"/>
+    <img src="{% static 'logo.jpg' %}" alt="Logo" width="100px"/>
     <nav>
-        <ul>
 			{% with request.resolver_match.url_name as url_name %}
-            <li><a href="{% url 'index' %}">About me</a></li>
-            <li><a href="{% url 'resume' %}">Resume</a></li>
-            <li><a href="{% url 'education' %}">Education</a></li>
-            <li><a href="{% url 'contact' %}">Contact me!</a></li>
+            <a class="nes-btn is-primary" href="{% url 'index' %}">About me</a>
+            <a class="nes-btn" href="{% url 'resume' %}">Resume</a>
+            <a class="nes-btn" href="{% url 'education' %}">Education</a>
+            <a class="nes-btn" href="{% url 'contact' %}">Contact me!</a>
 			{% endwith %}
-        </ul>
     </nav>
-
 </header>
+    </div>
 <main>
     <h1>{% block header %}{% endblock %}</h1>
 

@@ -7,11 +7,11 @@
 
 {% block main %}
 
-    <figure><img src="{% static 'index/J1HxsPhMYG0_2.jpg' %}" alt="Main Photo"/></figure>
-    <h2>Junior Python Developer</h2>
-    <article>
-        I'm a Junior Web Developer with 3 years of experience in Search Engine Optimization based in Minsk.
-    </article>
+    <h3>Junior Python Developer</h3>
+    <p><img src="{% static 'index/me_3.png' %}" width="400px" align="left" alt="Main Photo"/>
+        I'm a Junior Web Developer with 3 years of experience in Search Engine Optimization based in Minsk.</p>
+<i class="nes-octocat animate"></i>
+<p>See my GitHub!</p>
     <section>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum, turpis eu faucibus luctus, ante enim ullamcorper elit, eu lobortis erat nibh non mi. Sed pretium eros vitae ex tincidunt, quis egestas leo aliquam. Vivamus eros urna, ullamcorper sed dignissim vitae, condimentum eu dui. Cras a enim ipsum. Nulla gravida erat nisl, eget ornare felis porta vitae. Morbi varius eget neque sit amet tincidunt. Praesent euismod neque a arcu lobortis ornare. Etiam pharetra, risus a gravida finibus, orci erat ullamcorper dolor, ac gravida tellus purus sit amet lorem. Proin eu ligula dolor. Duis molestie, eros ac tincidunt congue, lorem arcu cursus eros, in sagittis libero risus nec urna. In elementum mauris a nibh blandit, bibendum sodales sem sagittis. </p>
 
@@ -19,12 +19,21 @@
 	<article>
         <h3>Technical Skills</h3>
   <img src="{% static 'index/rose.png' %}" alt="Rose"/>
+        <progress class="nes-progress" value="90" max="100"></progress>
+        <progress class="nes-progress is-primary" value="80" max="100"></progress>
+        <progress class="nes-progress is-success" value="50" max="100"></progress>
+        <progress class="nes-progress is-primary" value="30" max="100"></progress>
     </article>
 
-		<article>
-        <h3>About me</h3>
-   <p>Calmness, ability to listen and hear. The ability to find an approach to any task and
-                                work in conditions of tough deadlines. Accuracy, responsibility. Non-conflict.</p>
-    </article>
+<div class="nes-container is-dark is-rounded with-title">
+  <p class="title">In present</p>
+     <ul>
+            <li>Learning Python in TMS School and by myself</li>
+            <li>Working on special Morze Decoder</li>
+            <li>Learning Django Framework</li>
+            <li>Doing SEO on 12 projects :)</a></li>
+
+        </ul>
+</div>
 
 {% endblock %}

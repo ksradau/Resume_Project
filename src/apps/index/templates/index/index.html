@@ -7,33 +7,60 @@
 
 {% block main %}
 
-    <h3>Junior Python Developer</h3>
-    <p><img src="{% static 'index/me_3.png' %}" width="400px" align="left" alt="Main Photo"/>
-        I'm a Junior Web Developer with 3 years of experience in Search Engine Optimization based in Minsk.</p>
-<i class="nes-octocat animate"></i>
-<p>See my GitHub!</p>
-    <section>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum, turpis eu faucibus luctus, ante enim ullamcorper elit, eu lobortis erat nibh non mi. Sed pretium eros vitae ex tincidunt, quis egestas leo aliquam. Vivamus eros urna, ullamcorper sed dignissim vitae, condimentum eu dui. Cras a enim ipsum. Nulla gravida erat nisl, eget ornare felis porta vitae. Morbi varius eget neque sit amet tincidunt. Praesent euismod neque a arcu lobortis ornare. Etiam pharetra, risus a gravida finibus, orci erat ullamcorper dolor, ac gravida tellus purus sit amet lorem. Proin eu ligula dolor. Duis molestie, eros ac tincidunt congue, lorem arcu cursus eros, in sagittis libero risus nec urna. In elementum mauris a nibh blandit, bibendum sodales sem sagittis. </p>
+<h3>Junior Python Developer</h3>
 
-    </section>
-	<article>
-        <h3>Technical Skills</h3>
-  <img src="{% static 'index/rose.png' %}" alt="Rose"/>
-        <progress class="nes-progress" value="90" max="100"></progress>
-        <progress class="nes-progress is-primary" value="80" max="100"></progress>
-        <progress class="nes-progress is-success" value="50" max="100"></progress>
-        <progress class="nes-progress is-primary" value="30" max="100"></progress>
-    </article>
+<div class="row">
 
-<div class="nes-container is-dark is-rounded with-title">
-  <p class="title">In present</p>
-     <ul>
+    <img class="col-4" src="{% static 'index/me_3.png' %}" width="400px" align="left" alt="Main Photo">
+    <p class="col-7"><br/><br/><br/><br/>...<br/><br/>I'm a Junior Web Developer with 3 years experience of Search
+        Engine Optimization based in Minsk.<br/><br/>...</p>
+</div>
+<a class="github-link" href="https://github.com/ksradau" target="_blank" rel="noopener">
+    <p class="nes-balloon from-right">See my GitHub</p>
+    <i class="nes-octocat animate"></i>
+</a>
+
+
+<h2><br/>About me</h2>
+<p>My current level in Python as I evaluate myself is that I can write not very large console applications and am aware
+    of the basic concepts of the language. What areas of the language have been studied: quantity, dictionary,
+    functions, conditions, cycles, call stack. I try to go to Codewars and solve problems there , because you always
+    have to go to guides and articles, I read Habr. At university I have studied C, Java (+ Spring, + the concept of
+    OOP), HTML / CSS, SQL, very little C # and JS.
+</p>
+
+<h2><br/>Technical Skills</h2>
+<div class="row">
+
+    <div class="col-5">
+
+        <!--<img src="./Ekaterina Sushko Personal Resume Website_files/rose.png" alt="Rose">-->
+
+        <progress class="nes-progress" value="85" max="100"></progress>
+        <p>Python</p>
+        <progress class="nes-progress is-primary" value="70" max="100"></progress>
+        <p>Django</p>
+        <progress class="nes-progress is-success" value="60" max="100"></progress>
+        <p>HTML / CSS</p>
+        <progress class="nes-progress is-primary" value="95" max="100"></progress>
+        <p>SEO</p>
+    </div>
+    <div class="col-2"></div>
+
+    <div class="nes-container is-dark is-rounded with-title col-4">
+        <p class="title">In present</p>
+        <ul class="nes-list is-disc">
             <li>Learning Python in TMS School and by myself</li>
             <li>Working on special Morze Decoder</li>
             <li>Learning Django Framework</li>
-            <li>Doing SEO on 12 projects :)</a></li>
-
+            <li>Doing SEO on 12 projects :)</li>
+            <br/><br/>
+            <i class="nes-icon is-large star"></i><i class="nes-icon is-large star"></i><i
+                class="nes-icon is-large star"></i>
         </ul>
+    </div>
 </div>
+
+</main>
 
 {% endblock %}

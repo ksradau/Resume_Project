@@ -5,38 +5,42 @@
 
 <head>
     <meta charset="utf-8">
-    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap-grid.min.css">
     <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'favicon.png' %}" rel="shortcut icon" type="image/png"/>
+    <link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/png"/>
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
 <div class="marg">
-<header>
-    <img src="{% static 'logo.jpg' %}" alt="Logo" width="100px"/>
-    <nav>
-			{% with request.resolver_match.url_name as url_name %}
+    <header>
+        <img src="{% static 'logo.jpg' %}" alt="Logo" width="100px"/>
+        <nav>
+            {% with request.resolver_match.url_name as url_name %}
             <a class="nes-btn is-primary" href="{% url 'index' %}">About me</a>
             <a class="nes-btn" href="{% url 'resume' %}">Resume</a>
             <a class="nes-btn" href="{% url 'education' %}">Education</a>
             <a class="nes-btn" href="{% url 'contact' %}">Contact me!</a>
-			{% endwith %}
-    </nav>
-</header>
-    </div>
+            {% endwith %}
+        </nav>
+    </header>
+</div>
 <main>
     <h1>{% block header %}{% endblock %}</h1>
 
-        {% block main %}{% endblock %}
-    </main>
+    {% block main %}{% endblock %}
+</main>
 
-    <footer>
-        <p><a href="mailto:sushei.ekaterina@gmail.com">E-mail</a></p>
-        <p><a href="https://t.me/ksradau">Telegram</a></p>
-        <p><a href="https://vk.com/ksradau">VK</a></p>
-		<p>(c) Ekaterina Sushko 2020</p>
-    </footer>
+<footer>
+    <p><br/><br/><br/>~ (c) Ekaterina Sushko 2020 </p>
+    <p><a href="mailto:sushei.ekaterina@gmail.com">E-mail</a></p>
+    <p>
+        <a href="https://www.linkedin.com/in/%D0%B5%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B0-%D1%81%D1%83%D1%88%D0%BA%D0%BE-b9b952197/">Linkedin</a>
+    </p>
+    <p><a href="https://t.me/ksradau">Telegram</a></p>
+    <p><a href="https://vk.com/ksradau">VK</a> ~<br/><br/><br/></p>
+</footer>
 </body>
 </html>

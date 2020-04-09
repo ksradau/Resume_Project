@@ -7,17 +7,23 @@
 
 {% block main %}
 
-            <ul>
-                <li>E-mail: sushei.ekaterina@gmail.com</li>
-                <li>+375295929441</li>
-                <li>Minsk, Belarus</li>
-            </ul>
+<ul>
+    <li>E-mail: sushei.ekaterina@gmail.com</li>
+    <li>+375295929441</li>
+    <li>Minsk, Belarus<br/><br/></li>
+</ul>
 <form>
-                        <input type="text" name="Name" id="name" value="Name"/>
-                        <input type="text" name="Email" id="email" value="Email"/>
-                        <input type="text" name="Subject" id="subject" value="Subject"/>
-                        <textarea name="Message" rows="5" cols="25" id="message_input"></textarea>
-                <button>Send Message</button>
-            </form>
+
+
+    <input type="text" class="nes-input" placeholder="">
+    <label>Name</label>
+
+
+    <input type="text" class="nes-input is-warning" placeholder="">
+    <label>E-mail</label>
+
+    <textarea id="textarea_field" class="nes-textarea" placeholder="...Text something!"></textarea>
+    <button class="nes-btn is-primary">Send</button>
+</form>
 
 {% endblock %}

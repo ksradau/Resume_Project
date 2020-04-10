@@ -1,6 +1,8 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.views import View
+from django.views.generic import TemplateView
 
 
-def view_contact(request: HttpRequest) -> HttpResponse:
-    return render(request, "contact/contact.html")
+class ContactView(TemplateView):
+    template_name = "contact/contact.html"

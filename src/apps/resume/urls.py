@@ -1,7 +1,7 @@
 from django.urls import path
 
-from apps.resume.views import view_resume
+from apps.resume.views import ResumeView
 
 urlpatterns = [
-    path('', view_resume, name="resume"),
+    path('', ResumeView.as_view(), name="resume"),
 ]

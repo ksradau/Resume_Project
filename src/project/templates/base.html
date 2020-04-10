@@ -16,7 +16,7 @@
 <body>
 <div class="marg">
     <header>
-        <img src="{% static 'logo.jpg' %}" alt="Logo" width="100px"/>
+        <a href="{% url 'index' %}"><img src="{% static 'logo.jpg' %}" alt="Logo" width="100px"/></a>
         <nav>
             {% with request.resolver_match.url_name as url_name %}
             <a class="nes-btn is-primary" href="{% url 'index' %}">About me</a>

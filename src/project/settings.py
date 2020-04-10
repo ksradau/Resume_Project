@@ -99,6 +99,7 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     PROJECT_DIR / "static", #где джанге брать статику
+    #apps/index.static
 ]
 
 STATIC_ROOT = REPO_DIR / ".static"  #куда соберется вся статика после команды collectstatic - папка создается. типа в джанге куча статики в разных местах и разных приложениях,

@@ -1,7 +1,7 @@
 from django.urls import path
 
-from apps.education.views import view_education
+from apps.education.views import EdView
 
 urlpatterns = [
-    path('', view_education, name="education"),
+    path('', EdView.as_view(), name="education"),
 ]

@@ -18,11 +18,11 @@
     <header>
         <a href="{% url 'index:index' %}"><img src="{% static 'logo.jpg' %}" alt="Logo" width="100px"/></a>
         <nav>
-            {% with request.resolver_match.url_name as url_name %}
-            <a class="nes-btn is-primary" href="{% url 'index:index' %}">About me</a>
-            <a class="nes-btn" href="{% url 'resume:index' %}">Resume</a>
-            <a class="nes-btn" href="{% url 'education:index' %}">Education</a>
-            <a class="nes-btn" href="{% url 'contact:index' %}">Contact me!</a>
+            {% with request.resolver_match.namespace as ns %}
+            <a class="nes-btn {% if ns == 'index' %}is-primary{% endif %}" href="{% url 'index:index' %}">About me</a>
+            <a class="nes-btn {% if ns == 'resume' %}is-primary{% endif %}" href="{% url 'resume:index' %}">Resume</a>
+            <a class="nes-btn {% if ns == 'education' %}is-primary{% endif %}" href="{% url 'education:index' %}">Education</a>
+            <a class="nes-btn {% if ns == 'contact' %}is-primary{% endif %}" href="{% url 'contact:index' %}">Contact me!</a>
             {% endwith %}
         </nav>
     </header>

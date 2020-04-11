@@ -4,5 +4,5 @@ from django.views import View
 from django.views.generic import TemplateView
 
 
-class ContactView(TemplateView):
-    template_name = "contact/contact.html"
+class IndexView(TemplateView):
+    template_name = "contact/index.html"

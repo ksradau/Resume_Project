@@ -1,7 +1,11 @@
 from django.urls import path
 
-from apps.education.views import EdView
+from apps.education.views import IndexView
+
+from apps.education.apps import EducationConfig
+
+app_name = EducationConfig.name
 
 urlpatterns = [
-    path('', EdView.as_view(), name="education"),
+    path('', IndexView.as_view(), name="index"),
 ]

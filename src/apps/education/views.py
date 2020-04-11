@@ -4,5 +4,5 @@ from django.views import View
 from django.views.generic import TemplateView
 
 
-class EdView(TemplateView):
-    template_name = "education/education.html"
+class IndexView(TemplateView):
+    template_name = "education/index.html"

@@ -1,7 +1,10 @@
 from django.urls import path
 
-from apps.contact.views import ContactView
+from apps.contact.views import IndexView
+from apps.contact.apps import ContactConfig
+
+app_name = ContactConfig.name
 
 urlpatterns = [
-    path('', ContactView.as_view(), name="contact"),
+    path('', IndexView.as_view(), name="index"),
 ]

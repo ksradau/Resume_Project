@@ -1,20 +1,24 @@
-
+from os import getenv
 from pathlib import Path
+
+import dj_database_url
+from dynaconf import settings as _settings
+
 
 PROJECT_DIR = Path(__file__).parent.resolve() #project url
 BASE_DIR = PROJECT_DIR.parent.resolve()  #src url
 REPO_DIR = BASE_DIR.parent.resolve()  #repository url
 
-SECRET_KEY = 'ewufv22zm2vri-#7*4q_-nz0(2u(z%ous2^%0o0d-z)%h29%*8'
 
-DEBUG = True
+SECRET_KEY = _settings.SECRET_KEY
 
-ALLOWED_HOSTS = [
+DEBUG = _settings.DEBUG
+
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
+
+INTERNAL_IPS = [
     "127.0.0.1",
-    "localhost",
-    "ksradau.herokuapp.com",
 ]
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -63,11 +67,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
+
+_db_url = _settings.DATABASE_URL
+if _settings.ENV_FOR_DYNACONF == "heroku":
+    _db_url = getenv("DATABASE_URL")
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': (BASE_DIR / 'db.sqlite3').as_posix(),
-    }
+    "default": dj_database_url.parse(_db_url, conn_max_age=600),
 }
 
 

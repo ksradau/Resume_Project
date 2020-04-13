@@ -1,0 +1,16 @@
+default:
+  ALLOWED_HOSTS: []
+  DATABASE_URL: ""
+  DEBUG: true
+  SECRET_KEY: ""
+  SENTRY_DSN: ""
+
+development:
+  DEBUG: true
+
+heroku:
+  ALLOWED_HOSTS:
+    - .ksradau.herokuapp.com
+    - 127.0.0.1
+    - localhost
+  DEBUG: false

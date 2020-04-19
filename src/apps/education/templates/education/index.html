@@ -7,6 +7,6 @@
 
 {% block main %}
 <h3>{{ university }}</h3>
-{{ text }}
+{{ text | safe }}
 <img src="{% static 'education/grad.png' %}" align="center" width="1000px" alt="Photo">
 {% endblock %}

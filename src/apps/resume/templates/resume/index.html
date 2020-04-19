@@ -10,13 +10,13 @@
 <h4>2017 - Present</h4>
 
 <div class="nes-container is-dark is-rounded">
-    {{ preview }}
+    {{ preview | safe }}
 </div>
 <p class="nes-text is-primary">
-{{ article }}
+{{ article | safe }}
 </p>
 <p>
-    {{ text }}
+    {{ text | safe }}
 </p>
 
 {% endblock %}

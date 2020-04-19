@@ -1,54 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Ekaterina Sushko Work Experience{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-{% block header %}Work Experience{% endblock %}
+{% block header %}{{ h1 }}{% endblock %}
 
 {% block main %}
 <h3>Search Engine Optimizator</h3>
 <h4>2017 - Present</h4>
 
 <div class="nes-container is-dark is-rounded">
-    <li>Working with different CMS</li>
-    <li>SEO of more then 40 site projects</li>
-    <li>Google Ads</li>
-    <li>A bit of Front-End :)</li>
+    {{ preview }}
 </div>
 <p class="nes-text is-primary">
-    <br/>Theoretical and practical knowledge of SEO.
-    Experience with client projects of competitive and non-competitive, commercial and informational topics.
-    Optimization for Yandex and Google.
-    CMS: Wordpress, Joomla, Hostcms, Drupal, MODx, 1C-Bitrix, OpenCart self-written CMS.<br/>
+{{ article }}
 </p>
 <p>
-    Formation of a project promotion strategy;
-    Work with semantics (including for English-language projects) - collection, clustering;
-    Setting TK copywriters, writing SEO texts on their own;
-    Filling the site;
-    Technical audit, search and elimination of errors that adversely affect the position in the issue;
-    Setting TK for programmers;
-    Internal optimization, customization .htaccess;<br/><br/>
-    Work with meta tags, linking;
-    Link Profile Analysis;
-    Analysis of competitors in a niche;
-    Building a strategy for link building;
-    Building natural links from quality donors (having your own base);
-    Link purchase (Sape, Miralinks);
-    Experience with Google My Business, Yandex.Directory services, registration and verification of company networks on
-    Yandex and Google maps;
-    "Cleaning" the site after hacking;<br/><br/>
-    SERM
-    Usability audits, expert assessment of the interface and logic of the site;
-    Recommendations and drawing basic layouts of site pages;
-    Setting up and maintaining contextual advertising Yandex.Direct and Google Ads.<br/><br/>
-
-    SEO services, tools and platforms: KeyCollector, Serpstat, Ahrefs, Seopult, Comparser, Megaindex, Bukvariks,
-    SEO-Excel, Screaming Frog, Topvisor, Checktrust, Glavred, Similar web, RDS bar, SEMrush, Google and Yandex
-    webmasters, Yandex Metric and Google Analytics<br/><br/>
-
-    Basic knowledge of OOP, C, C #, C, Java programming languages
-    HTML/CSS
+    {{ text }}
 </p>
 
 {% endblock %}

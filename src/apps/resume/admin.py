@@ -1,3 +1,9 @@
+from django.contrib.admin import ModelAdmin
 from django.contrib import admin
 
-# Register your models here.
+from apps.resume.models import ResumePage
+
+
+@admin.register(ResumePage)
+class ResumePageAdminModel(ModelAdmin):
+    pass

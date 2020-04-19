@@ -1,17 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Ekaterina Sushko Personal and Contact Info{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-{% block header %}Personal and Contact Info{% endblock %}
+{% block header %}{{ h1 }}{% endblock %}
 
 {% block main %}
 
-<ul>
-    <li>E-mail: sushei.ekaterina@gmail.com</li>
-    <li>+375295929441</li>
-    <li>Minsk, Belarus<br/><br/></li>
-</ul>
+{{ information }}
 <form>
 
 

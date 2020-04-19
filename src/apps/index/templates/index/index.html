@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Ekaterina Sushko Personal Resume Website{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block header %}{{ name }}{% endblock %}
 
@@ -21,12 +21,7 @@
 
 
 <h2><br/>About me</h2>
-<p>My current level in Python as I evaluate myself is that I can write not very large console applications and am aware
-    of the basic concepts of the language. What areas of the language have been studied: quantity, dictionary,
-    functions, conditions, cycles, call stack. I try to go to Codewars and solve problems there , because you always
-    have to go to guides and articles, I read Habr. At university I have studied C, Java (+ Spring, + the concept of
-    OOP), HTML / CSS, SQL, very little C # and JS.
-</p>
+<p>{{ about }}</p>
 
 <h2><br/>Technical Skills</h2>
 <div class="row">
@@ -35,13 +30,13 @@
 
         <!--<img src="./Ekaterina Sushko Personal Resume Website_files/rose.png" alt="Rose">-->
 
-        <progress class="nes-progress" value="85" max="100"></progress>
+        <progress class="nes-progress" value="{{ python_skill }}" max="100"></progress>
         <p>Python</p>
-        <progress class="nes-progress is-primary" value="70" max="100"></progress>
+        <progress class="nes-progress is-primary" value="{{ django_skill }}" max="100"></progress>
         <p>Django</p>
-        <progress class="nes-progress is-success" value="60" max="100"></progress>
+        <progress class="nes-progress is-success" value="{{ html_skill }}" max="100"></progress>
         <p>HTML / CSS</p>
-        <progress class="nes-progress is-primary" value="95" max="100"></progress>
+        <progress class="nes-progress is-primary" value="{{ seo_skill }}" max="100"></progress>
         <p>SEO</p>
     </div>
     <div class="col-2"></div>
@@ -49,10 +44,7 @@
     <div class="nes-container is-dark is-rounded with-title col-4">
         <p class="title">In present</p>
         <ul class="nes-list is-disc">
-            <li>Learning Python in TMS School and by myself</li>
-            <li>Working on special Morze Decoder</li>
-            <li>Learning Django Framework</li>
-            <li>Doing SEO on 12 projects :)</li>
+            {{ present_activities }}
             <br/><br/>
             <i class="nes-icon is-large star"></i><i class="nes-icon is-large star"></i><i
                 class="nes-icon is-large star"></i>

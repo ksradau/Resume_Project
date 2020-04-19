@@ -1,17 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Ekaterina Sushko Education{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-{% block header %}Education{% endblock %}
+{% block header %}{{ h1 }}{% endblock %}
 
 {% block main %}
-<h3>Belarusian State University of Informatics and Radioelectronics</h3>
-<p class="nes-text is-primary">Economist-Programmer</p>
-
-<p>September 2014 - July 2018</p>
-<p class="nes-container">
-    Higher education (2014-2018), BSUIR, specialty "Economics of electronic business"
-</p>
+<h3>{{ university }}</h3>
+{{ text }}
 <img src="{% static 'education/grad.png' %}" align="center" width="1000px" alt="Photo">
 {% endblock %}

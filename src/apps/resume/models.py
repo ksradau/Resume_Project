@@ -14,3 +14,21 @@ class ResumePage(m.Model):
 
     def __str__(self):
         return f"ResumePage(id={self.pk})"
+
+
+class Technology(m.Model):
+    name = m.TextField()
+    description = m.TextField(null=True, blank=True)
+
+
+class Project(m.Model):
+    started_at = m.DateField(null=True, blank=True)
+    finished_at = m.DateField(null=True, blank=True)
+    summary = m.TextField(null=True, blank=True)
+    technologies = m.ManyToManyField(Technology, related_name="project")
+
+
+class Responsibility(m.Model):
+    summary = m.TextField()
+    project = m.ForeignKey(Project, on_delete=m.CASCADE, related_name="responsibilities")
+

@@ -19,4 +19,24 @@
     {{ text | safe }}
 </p>
 
+{% for project in object_list%}
+<p>From {{ project.started_at }} till {{ project.finished_at }}</p>
+<p>Description {{ project.summary }}</p>
+
+{% if project.responsibilities.count%}
+<p>Responsibility</p>
+{% for resp in project.responsibilities.all%}
+    <li>{{ resp.summary }}</li>
+{% endfor %}
+{% endif %}
+
+<p>Technologies</p>
+<ul>
+    {% for technology in project.technologies.all%}
+    <li>{{ technology.name }}</li>
+    {% endfor %}
+</ul>
+{% endfor %}
+
+
 {% endblock %}

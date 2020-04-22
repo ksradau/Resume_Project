@@ -6,37 +6,47 @@
 {% block header %}{{ h1 }}{% endblock %}
 
 {% block main %}
-<h3>Search Engine Optimizator</h3>
-<h4>2017 - Present</h4>
-
+<h1>My Projects</h1><br/>
+<!--
 <div class="nes-container is-dark is-rounded">
     {{ preview | safe }}
 </div>
 <p class="nes-text is-primary">
-{{ article | safe }}
+    {{ article | safe }}
 </p>
 <p>
     {{ text | safe }}
 </p>
-
+-->
 {% for project in object_list%}
-<p>From {{ project.started_at }} till {{ project.finished_at }}</p>
-<p>Description {{ project.summary }}</p>
+<div class="nes-container is-rounded">
+    <h3 class="nes-text is-primary"><a href="{{ project.link }}">{{ project.name }}</a></h3><br/>
+        <p>From {{ project.started_at }} till {{ project.finished_at }}</p>
+    <div class="nes-container is-dark is-rounded">
+    <h4 class="nes-text is-disabled">About project</h4>
+        <p>{{ project.summary }}</p>
+    </div><br/>
+    <h4 class="nes-text is-primary">My achievements</h4>
+        <p>{{ project.achievements_text }}</p>
 
-{% if project.responsibilities.count%}
-<p>Responsibility</p>
-{% for resp in project.responsibilities.all%}
-    <li>{{ resp.summary }}</li>
-{% endfor %}
-{% endif %}
-
-<p>Technologies</p>
-<ul>
-    {% for technology in project.technologies.all%}
-    <li>{{ technology.name }}</li>
+    {% if project.responsibilities.count%}
+    <h4 class="nes-text is-primary">Responsibilities</h4>
+    <ul>
+    {% for resp in project.responsibilities.all%}
+        <li>{{ resp.summary }}</li>
     {% endfor %}
-</ul>
-{% endfor %}
+    </ul>
+    {% endif %}
 
+
+    <h4 class="nes-text is-primary">Technologies</h4>
+    <ul>
+        {% for technology in project.technologies.all%}
+        <li>{{ technology.name }}</li>
+        {% endfor %}
+    </ul>
+</div><br/><br/>
+
+{% endfor %}
 
 {% endblock %}

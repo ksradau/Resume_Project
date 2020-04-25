@@ -1,23 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ resume_list.first.title }}{% endblock %}
 
-{% block header %}{{ h1 }}{% endblock %}
+{% block header %}{{ resume_list.first.h1 }}{% endblock %}
 
 {% block main %}
-<h1>My Projects</h1><br/>
-<!--
+
 <div class="nes-container is-dark is-rounded">
-    {{ preview | safe }}
+    {{ resume_list.first.preview }}
 </div>
 <p class="nes-text is-primary">
-    {{ article | safe }}
+    {{ resume_list.first.article | safe }}
 </p>
 <p>
-    {{ text | safe }}
+    {{ resume_list.first.text | safe }}
 </p>
--->
+
 {% for project in object_list%}
 <div class="nes-container is-rounded">
     <h3 class="nes-text is-primary"><a href="{{ project.link }}">{{ project.name }}</a></h3><br/>

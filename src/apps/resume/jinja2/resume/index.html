@@ -1,21 +1,20 @@
 {% extends "base.html" %}
-{% load static %}
 
-{% block title %}{{ resume_list.first.title }}{% endblock %}
+{% block title %}{{ resume_list.first().title }}{% endblock %}
 
-{% block header %}{{ resume_list.first.h1 }}{% endblock %}
+{% block header %}{{ resume_list.first().h1 }}{% endblock %}
 
 {% block main %}
 
 <br/><p>
-    {{ resume_list.first.preview | safe }}
+    {{ resume_list.first().preview | safe }}
 </p>
 
 <p class="nes-text is-warning">
-    {{ resume_list.first.article | safe }}
+    {{ resume_list.first().article | safe }}
 </p>
 <p>
-    {{ resume_list.first.text | safe }}
+    {{ resume_list.first().text | safe }}
 </p>
 
 {% for project in object_list%}
@@ -29,10 +28,10 @@
     <h4 class="nes-text is-primary">My achievements</h4>
         <p>{{ project.achievements_text }}</p>
 
-    {% if project.responsibilities.count%}
+    {% if project.responsibilities.count()%}
     <h4 class="nes-text is-primary">Responsibilities</h4>
     <ul>
-    {% for resp in project.responsibilities.all%}
+    {% for resp in project.responsibilities.all()%}
         <li>{{ resp.summary }}</li>
     {% endfor %}
     </ul>
@@ -41,7 +40,7 @@
 
     <h4 class="nes-text is-primary">Technologies</h4>
     <ul>
-        {% for technology in project.technologies.all%}
+        {% for technology in project.technologies.all()%}
         <li>{{ technology.name }}</li>
         {% endfor %}
     </ul>

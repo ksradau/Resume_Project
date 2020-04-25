@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -11,7 +10,7 @@
 
 <div class="row">
 
-    <img class="col-4" src="{% static 'index/me_3.png' %}" width="400px" align="left" alt="Main Photo">
+    <img class="col-4" src="{{ static('index/me_3.png') }}" width="400px" align="left" alt="Main Photo">
     <p class="col-7">{{ greeting | safe }}</p>
 </div>
 <a class="github-link" href="https://github.com/ksradau" target="_blank" rel="noopener">

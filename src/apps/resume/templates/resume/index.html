@@ -8,7 +8,7 @@
 {% block main %}
 
 <div class="nes-container is-dark is-rounded">
-    {{ resume_list.first.preview }}
+    {{ resume_list.first.preview | safe }}
 </div>
 <p class="nes-text is-primary">
     {{ resume_list.first.article | safe }}

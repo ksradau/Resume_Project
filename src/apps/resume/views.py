@@ -1,10 +1,8 @@
+
 from django.views.generic import ListView
 
 from apps.resume.models import Project
 from apps.resume.models import ResumePage
-
-
-
 
 
 class IndexView(ListView):

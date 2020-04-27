@@ -2,6 +2,7 @@ from os import getenv
 from pathlib import Path
 
 import dj_database_url
+from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 
 
@@ -30,7 +31,7 @@ INSTALLED_APPS = [
     'apps.index',
     'apps.resume',
     'apps.education',
-    'apps.contact',
+    'apps.blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -48,18 +49,31 @@ ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
         #тут рендер ищет имена
         'DIRS': [
-            PROJECT_DIR / "templates",
+            PROJECT_DIR / "jinja2",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
+            'environment': "project.utils.jinja2env.build_jinja2_environment",
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+{
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
@@ -111,3 +125,6 @@ STATICFILES_DIRS = [
 STATIC_ROOT = REPO_DIR / ".static"  #куда соберется вся статика после команды collectstatic - папка создается. типа в джанге куча статики в разных местах и разных приложениях,
 
 STATIC_URL = '/static/' #путь от которого все отсчитывается на разных сервисах
+
+#LOGIN_URL = reverse_lazy("onboarding:sign_in")
+#LOGIN_REDIRECT_URL = reverse_lazy("blog:all_posts")

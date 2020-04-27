@@ -1,13 +1,20 @@
 {% extends "base.html" %}
-{% load static %}
 
-{% block title %}{{ title }}{% endblock %}
+<!--
 
-{% block header %}{{ h1 }}{% endblock %}
 
-{% block main %}
 
 {{ information | safe }}
+-->
+{% block title %}Title Blog{% endblock %}
+{% block header %}Blog{% endblock %}
+{% block main %}
+{% for post in object_list %}
+
+    <a href="{{ post.get_absolute_url() }}"> <h1>{{ post.title }}</h1></a>
+{% endfor %}
+
+
 <form>
 
 
@@ -21,5 +28,6 @@
     <textarea id="textarea_field" class="nes-textarea" placeholder="...Text something!"></textarea>
     <button class="nes-btn is-primary">Send</button>
 </form>
+
 
 {% endblock %}

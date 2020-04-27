@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+<!--
+
+
+
+{{ information | safe }}
+-->
+
+{% block title %}Title Post{% endblock %}
+{% block header %}{{ object.title }}{% endblock %}
+    {% block main %}
+    <p>{{ object.content }}</p>
+
+{% endblock %}

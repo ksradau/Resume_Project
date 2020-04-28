@@ -7,6 +7,7 @@ User = get_user_model()
 
 class BlogPost(m.Model):
     title = m.TextField(null=True, blank=True)
+    preview = m.TextField(null=True, blank=True)
     content = m.TextField(null=True, blank=True)
     author = m.ForeignKey(User, on_delete=m.SET_NULL, null=True, blank=True)
 

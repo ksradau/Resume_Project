@@ -13,3 +13,4 @@ dj-database-url = "*"
 dynaconf = {extras = ["yaml"],version = "*"}
 psycopg2 = "*"
 jinja2 = "*"
+isort = "*"

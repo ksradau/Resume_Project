@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
-from apps.index.models import UserInfo
+
 from apps.index.models import MainPage
+from apps.index.models import UserInfo
 
 
 class IndexView(TemplateView):
@@ -11,18 +12,19 @@ class IndexView(TemplateView):
 
         info = UserInfo.objects.first()
         info_main = MainPage.objects.first()
-        ctx = {"name": info.name,
-               "greeting": info.greeting,
-               "title": info_main.title,
-               "description": info_main.description,
-               "h1": info_main.h1,
-               "about": info_main.about,
-               "python_skill": info_main.python_skill,
-               "django_skill": info_main.django_skill,
-               "html_skill": info_main.html_skill,
-               "seo_skill": info_main.seo_skill,
-               "present_activities": info_main.present_activities,
-               }
+        ctx = {
+            "name": info.name,
+            "greeting": info.greeting,
+            "title": info_main.title,
+            "description": info_main.description,
+            "h1": info_main.h1,
+            "about": info_main.about,
+            "python_skill": info_main.python_skill,
+            "django_skill": info_main.django_skill,
+            "html_skill": info_main.html_skill,
+            "seo_skill": info_main.seo_skill,
+            "present_activities": info_main.present_activities,
+        }
 
         ctx.update(parent_ctx)
 

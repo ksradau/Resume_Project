@@ -5,6 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 httpie = "*"
+black = "==19.10b0"
+codecov = "*"
+coverage = "*"
+ipython = "*"
+isort = "*"
+pudb = "*"
 
 [packages]
 django = "*"

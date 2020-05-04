@@ -45,7 +45,9 @@ class Project(m.Model):
 
 class Responsibility(m.Model):
     summary = m.TextField()
-    project = m.ForeignKey(Project, on_delete=m.CASCADE, related_name="responsibilities")
+    project = m.ForeignKey(
+        Project, on_delete=m.CASCADE, related_name="responsibilities"
+    )
 
     class Meta:
         verbose_name_plural = "Responsibilities"

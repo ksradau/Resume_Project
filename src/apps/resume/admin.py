@@ -1,11 +1,10 @@
-from django.contrib.admin import ModelAdmin
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 
-from apps.resume.models import ResumePage
-from apps.resume.models import Technology
 from apps.resume.models import Project
 from apps.resume.models import Responsibility
-
+from apps.resume.models import ResumePage
+from apps.resume.models import Technology
 from project.utils.forms import gen_textinput_admin_form
 
 
@@ -25,9 +24,7 @@ class TechnologyAdminModel(ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdminModel(ModelAdmin):
-    form = gen_textinput_admin_form(
-        Project, (Project.link, Project.name)
-    )
+    form = gen_textinput_admin_form(Project, (Project.link, Project.name))
 
 
 @admin.register(Responsibility)

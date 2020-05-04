@@ -14,3 +14,19 @@ heroku:
     - 127.0.0.1
     - localhost
   DEBUG: false
+
+
+test:
+  EMAIL_FROM: "test@test.name"
+  CACHING: 0
+  DEBUG: 1
+  SECRET_KEY: "1"
+  SITE_ID: 1
+
+
+travis:
+  EMAIL_FROM: "test@test.name"
+  CACHING: 0
+  DEBUG: 1
+  SECRET_KEY: "1"
+  SITE_ID: 1

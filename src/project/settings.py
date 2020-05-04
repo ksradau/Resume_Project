@@ -5,10 +5,9 @@ import dj_database_url
 from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 
-
-PROJECT_DIR = Path(__file__).parent.resolve() #project url
-BASE_DIR = PROJECT_DIR.parent.resolve()  #src url
-REPO_DIR = BASE_DIR.parent.resolve()  #repository url
+PROJECT_DIR = Path(__file__).parent.resolve()  # project url
+BASE_DIR = PROJECT_DIR.parent.resolve()  # src url
+REPO_DIR = BASE_DIR.parent.resolve()  # repository url
 
 
 SECRET_KEY = _settings.SECRET_KEY
@@ -22,50 +21,48 @@ INTERNAL_IPS = [
 ]
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'apps.index',
-    'apps.resume',
-    'apps.education',
-    'apps.blog.apps.BlogConfig',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "apps.index",
+    "apps.resume",
+    "apps.education",
+    "apps.blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'project.urls'
+ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.jinja2.Jinja2',
-        #тут рендер ищет имена
-        'DIRS': [
-            PROJECT_DIR / "jinja2",
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'environment': "project.utils.jinja2env.build_jinja2_environment",
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        # тут рендер ищет имена
+        "DIRS": [PROJECT_DIR / "jinja2",],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "environment": "project.utils.jinja2env.build_jinja2_environment",
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
-{
+    {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "APP_DIRS": True,
         "OPTIONS": {
@@ -79,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = "project.wsgi.application"
 
 
 _db_url = _settings.DATABASE_URL
@@ -93,23 +90,17 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -118,13 +109,15 @@ USE_L10N = True
 USE_TZ = True
 
 STATICFILES_DIRS = [
-    PROJECT_DIR / "static", #где джанге брать статику
-    #apps/index.static
+    PROJECT_DIR / "static",  # где джанге брать статику
+    # apps/index.static
 ]
 
-STATIC_ROOT = REPO_DIR / ".static"  #куда соберется вся статика после команды collectstatic - папка создается. типа в джанге куча статики в разных местах и разных приложениях,
+STATIC_ROOT = (
+    REPO_DIR / ".static"
+)  # куда соберется вся статика после команды collectstatic - папка создается. типа в джанге куча статики в разных местах и разных приложениях,
 
-STATIC_URL = '/static/' #путь от которого все отсчитывается на разных сервисах
+STATIC_URL = "/static/"  # путь от которого все отсчитывается на разных сервисах
 
-#LOGIN_URL = reverse_lazy("onboarding:sign_in")
-#LOGIN_REDIRECT_URL = reverse_lazy("blog:all_posts")
+# LOGIN_URL = reverse_lazy("onboarding:sign_in")
+# LOGIN_REDIRECT_URL = reverse_lazy("blog:all_posts")

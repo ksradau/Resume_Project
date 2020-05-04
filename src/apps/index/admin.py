@@ -1,8 +1,8 @@
-from django.contrib.admin import ModelAdmin
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 
-from apps.index.models import UserInfo
 from apps.index.models import MainPage
+from apps.index.models import UserInfo
 
 
 @admin.register(UserInfo)

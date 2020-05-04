@@ -5,6 +5,7 @@ from django.test import TestCase
 
 from apps.index.views import IndexView
 
+
 @skip
 class Test(TestCase):
     def setUp(self) -> None:

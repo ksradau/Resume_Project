@@ -1,4 +1,3 @@
-
 from django.views.generic import ListView
 
 from apps.resume.models import Project
@@ -11,5 +10,5 @@ class IndexView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['resume_list'] = ResumePage.objects.all()
+        context["resume_list"] = ResumePage.objects.all()
         return context

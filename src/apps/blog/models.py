@@ -12,4 +12,4 @@ class BlogPost(m.Model):
     author = m.ForeignKey(User, on_delete=m.SET_NULL, null=True, blank=True)
 
     def get_absolute_url(self):
-        return reverse_lazy("blog:post", kwargs={'pk': str(self.pk)})
+        return reverse_lazy("blog:post", kwargs={"pk": str(self.pk)})

@@ -1,4 +1,4 @@
-HERE := $(shell pwd)
+HERE := .
 VENV := $(shell pipenv --venv)
 PYTHONPATH := ${HERE}/src
 TEST_PARAMS := --verbosity 2 --pythonpath ${PYTHONPATH}
@@ -79,7 +79,7 @@ sh:
 
 .PHONY: test
 test:
-	ENV_FOR_DYNACONF=test \
+	set ENV_FOR_DYNACONF=test
 	${RUN} coverage run \
 		src/manage.py test ${TEST_PARAMS} \
 			apps \

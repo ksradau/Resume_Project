@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "apps.resume",
     "apps.education",
     "apps.blog.apps.BlogConfig",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [

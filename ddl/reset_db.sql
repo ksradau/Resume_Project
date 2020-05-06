@@ -1,3 +1,3 @@
 #DROP DATABASE IF EXISTS "test_ksradaubase"
-#DROP DATABASE IF EXISTS "sidorov-dev"
-#CREATE DATABASE "sidorov-dev"
+#DROP DATABASE IF EXISTS "xxx"
+#CREATE DATABASE "xxx"

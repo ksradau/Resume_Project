@@ -20,3 +20,4 @@ dynaconf = {extras = ["yaml"],version = "*"}
 psycopg2 = "*"
 jinja2 = "*"
 djangorestframework = "*"
+delorean = "*"

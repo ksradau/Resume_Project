@@ -27,10 +27,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
     "apps.index",
     "apps.resume",
     "apps.education",
     "apps.blog.apps.BlogConfig",
+    "apps.authorization.apps.AuthConfig",
     "rest_framework",
 ]
 
@@ -98,6 +100,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+]
+
 
 LANGUAGE_CODE = "en-us"
 
@@ -122,3 +131,17 @@ STATIC_URL = "/static/"  # путь от которого все отсчиты�
 
 # LOGIN_URL = reverse_lazy("onboarding:sign_in")
 # LOGIN_REDIRECT_URL = reverse_lazy("blog:all_posts")
+
+LOGIN_URL = reverse_lazy("authorization:sign_in")
+LOGIN_REDIRECT_URL = reverse_lazy("authorization:me")
+
+"""SITE_ID = _settings.SITE_ID
+
+EMAIL_HOST = _settings.EMAIL_HOST
+EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
+EMAIL_PORT = _settings.EMAIL_PORT
+EMAIL_USE_SSL = _settings.EMAIL_USE_SSL
+EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
+
+EMAIL_FROM = _settings.EMAIL_FROM """

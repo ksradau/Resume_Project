@@ -13,3 +13,12 @@ class BlogPost(m.Model):
 
     def get_absolute_url(self):
         return reverse_lazy("blog:post", kwargs={"pk": str(self.pk)})
+
+
+class Comment(m.Model):
+    author = m.ForeignKey(User, on_delete=m.CASCADE)
+    post = m.ForeignKey(BlogPost, on_delete=m.CASCADE, related_name="comments")
+    nr_likes = m.IntegerField(null=True, blank=True)
+    nr_dislikes = m.IntegerField(null=True, blank=True)
+
+    message = m.TextField()

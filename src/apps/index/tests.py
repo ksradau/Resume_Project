@@ -1,23 +1,29 @@
 from unittest import skip
+from os import urandom
 
-from django.test import Client
 from django.test import TestCase
 
+from apps.index.models import UserInfo
+from apps.index.models import MainPage
 from apps.index.views import IndexView
+from project.utils.validate_response import TemplateResponseTestMixin
 
 
-@skip
-class Test(TestCase):
-    def setUp(self) -> None:
-        self.cli = Client()
-
+class Test(TestCase, TemplateResponseTestMixin):
     def test_get(self):
-        resp = self.cli.get("/")
-        self.assertEqual(resp.status_code, 200)
-        self.assertEqual(len(resp.templates), 2)
-        self.assertEqual(
-            [_t.name for _t in resp.templates], ["index/all_posts.html", "base.html"]
+        self.validate_response(
+            url="/",
+            expected_view_name="index:index",
+            expected_view=IndexView,
+            expected_template="index/index.html",
         )
-        self.assertEqual(
-            resp.resolver_match.func.__name__, IndexView.as_view().__name__
-        )
+
+    def test_userinfo(self):
+        placeholder = urandom(4).hex()
+        userinfo = UserInfo(name=placeholder)
+        self.assertEqual(str(userinfo), f"UserInfo(id={userinfo.pk}, name={placeholder!r})")
+
+    def test_mainpage(self):
+        placeholder = urandom(4).hex()
+        mainpage = MainPage(title=placeholder)
+        self.assertEqual(str(mainpage), f"MainPage(id={mainpage.pk})")

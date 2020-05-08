@@ -4,9 +4,11 @@ default:
   DEBUG: true
   SECRET_KEY: ""
   SENTRY_DSN: ""
+  SITE_ID: 0
 
 development:
   DEBUG: true
+  SITE_ID: 1
 
 heroku:
   ALLOWED_HOSTS:

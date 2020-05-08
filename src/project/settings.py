@@ -28,11 +28,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "apps.authorization.apps.AuthConfig",
     "apps.index",
     "apps.resume",
     "apps.education",
     "apps.blog.apps.BlogConfig",
-    "apps.authorization.apps.AuthConfig",
     "rest_framework",
 ]
 
@@ -45,6 +45,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -135,8 +136,8 @@ STATIC_URL = "/static/"  # путь от которого все отсчиты�
 LOGIN_URL = reverse_lazy("authorization:sign_in")
 LOGIN_REDIRECT_URL = reverse_lazy("authorization:me")
 
-"""SITE_ID = _settings.SITE_ID
-
+SITE_ID = _settings.SITE_ID
+"""
 EMAIL_HOST = _settings.EMAIL_HOST
 EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
 EMAIL_HOST_USER = _settings.EMAIL_HOST_USER

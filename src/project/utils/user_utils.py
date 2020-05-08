@@ -6,9 +6,9 @@ from django.contrib.auth import get_user_model
 from django.test import Client
 from rest_framework import status
 
-from applications.onboarding.models import AuthProfile
-from applications.onboarding.models import Profile
-from project.utils.xdatetime import utcnow
+from apps.authorization.models import AuthProfile
+from apps.authorization.models import Profile
+from project.utils.date import utcnow
 
 User = get_user_model()
 

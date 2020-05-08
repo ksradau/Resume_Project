@@ -1,17 +1,14 @@
-from unittest import skip
-
-from django.test import TestCase
-
-from apps.blog.views import AllBlogPostsView
 from os import urandom
+from unittest import skip
 
 from django.test import Client
 from django.test import TestCase
 
 from apps.blog.models import BlogPost
+from apps.blog.views import AllBlogPostsView
 from apps.blog.views import BlogPostView
-from project.utils.validate_response import TemplateResponseTestMixin
 from project.utils.user_utils import UserTestMixin
+from project.utils.validate_response import TemplateResponseTestMixin
 
 
 class Test(TestCase, TemplateResponseTestMixin, UserTestMixin):
@@ -81,5 +78,5 @@ class Test(TestCase, TemplateResponseTestMixin, UserTestMixin):
             expected_status_code=405,
             expected_view=BlogPostView,
             expected_template="blog/post.html",
-            expected_view_name="blog:post"
+            expected_view_name="blog:post",
         )

@@ -13,7 +13,7 @@ isort = "*"
 pudb = "*"
 
 [packages]
-django = "*"
+django = {extras = ["bcrypt"],version = "*"}
 whitenoise = "*"
 dj-database-url = "*"
 dynaconf = {extras = ["yaml"],version = "*"}

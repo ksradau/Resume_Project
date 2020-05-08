@@ -6,10 +6,10 @@ from django.core.mail import send_mail
 from django.http import HttpRequest
 from django.template.loader import get_template
 
-#from project.utils.safeguards import safe
+# from project.utils.safeguards import safe
 
 
-#@safe
+# @safe
 def send_email(
     email_to: str,
     subject: str,

@@ -9,6 +9,7 @@ from apps.blog.models import Comment
 class BlogPostAdminModel(ModelAdmin):
     pass
 
+
 @admin.register(Comment)
 class CommentModelAdmin(admin.ModelAdmin):
     pass

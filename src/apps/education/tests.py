@@ -1,5 +1,5 @@
-from unittest import skip
 from os import urandom
+from unittest import skip
 
 from django.test import TestCase
 

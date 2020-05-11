@@ -10,5 +10,5 @@ app_name = BlogConfig.label
 urlpatterns = [
     path("", AllBlogPostsView.as_view(), name="all_posts"),
     path("post/<int:pk>/", BlogPostView.as_view(), name="post"),
-    path("posts/<int:pk>/comment/", CommentView.as_view(), name="comment"),
+    path("post/<int:pk>/comment/", CommentView.as_view(), name="comment"),
 ]

@@ -23,7 +23,7 @@ class ProfileView(TemplateView):
         if newbie:
             ctx["newbie_alert"] = " ".join(
                 (
-                    "We strongly encourage you to update your profile and password!",
+                    "We strongly encourage you to update your profile and pass!",
                     "Your current password is the same as your current username.",
                     "Please copy the username, set the new one, and update the password.",
                 )

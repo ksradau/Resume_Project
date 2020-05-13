@@ -3,8 +3,8 @@ from django.test import TestCase
 
 from apps.authorization.views import SignInView
 from apps.authorization.views.profile import ProfileView
-from project.utils.validate_response import TemplateResponseTestMixin
 from project.utils.user_utils import UserTestMixin
+from project.utils.validate_response import TemplateResponseTestMixin
 
 User = get_user_model()
 

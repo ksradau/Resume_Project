@@ -22,3 +22,6 @@ jinja2 = "*"
 djangorestframework = "*"
 delorean = "*"
 bcrypt = "*"
+celery = {extras = ["redis"],version = "*"}
+redis = "*"
+freezegun = "*"

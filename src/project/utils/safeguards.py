@@ -18,4 +18,4 @@ def safe(func):  # pragma: no cover
 
         return result
 
-    return _func_with_safeguard """
+    return _func_with_safeguard"""

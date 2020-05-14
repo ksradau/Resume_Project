@@ -37,7 +37,7 @@ logger = get_task_logger(__name__)
 
 
 @app.task
-def invite_single_user(email):
+def invite_single_user(email: str):
     logger.debug(f"BEGIN | {invite_single_user.__name__} | {email=}")
 
     auth_profile_model = get_auth_profile_model()

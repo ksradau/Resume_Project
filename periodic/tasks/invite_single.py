@@ -2,7 +2,8 @@ from celery.utils.log import get_task_logger
 
 from periodic.app import app
 from periodic.utils.xmodels import get_auth_profile_model
-#from project.utils.safeguards import safe
+
+# from project.utils.safeguards import safe
 from project.utils.date import utcnow
 from project.utils.xmail import send_email
 
@@ -10,8 +11,9 @@ logger = get_task_logger(__name__)
 
 PROJECT_NAME = "ksradau.herokuapp.com"
 
+
 @app.task
-#@safe
+# @safe
 def invite_single_user(email: str):
     logger.debug(f"BEGIN | {invite_single_user.__name__} | {email=}")
 

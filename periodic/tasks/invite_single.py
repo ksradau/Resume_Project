@@ -2,8 +2,6 @@ from celery.utils.log import get_task_logger
 
 from periodic.app import app
 from periodic.utils.xmodels import get_auth_profile_model
-
-# from project.utils.safeguards import safe
 from project.utils.date import utcnow
 from project.utils.xmail import send_email
 

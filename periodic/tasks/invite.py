@@ -4,7 +4,7 @@ from django.db.models import Q
 from periodic import tasks
 from periodic.app import app
 from periodic.utils.xmodels import get_auth_profile_model
-from project.utils.date import utcnow
+from project.utils.xdatetime import utcnow
 from project.utils.xmail import send_email
 
 logger = get_task_logger(__name__)
@@ -35,11 +35,9 @@ def invite_all_users():
 
 logger = get_task_logger(__name__)
 
-PROJECT_NAME = "ksradau.herokuapp.com"
-
 
 @app.task
-def invite_single_user(email: str):
+def invite_single_user(email):
     logger.debug(f"BEGIN | {invite_single_user.__name__} | {email=}")
 
     auth_profile_model = get_auth_profile_model()
@@ -54,7 +52,7 @@ def invite_single_user(email: str):
         )
         return
 
-    service = PROJECT_NAME.capitalize()
+    service = "ksradau.herokuapp.com".capitalize()
 
     send_email(
         context={"link": auth_profile.link, "service": service},

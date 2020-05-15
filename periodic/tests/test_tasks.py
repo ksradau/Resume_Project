@@ -38,7 +38,7 @@ class Test(UserTestMixin, TestCase):
         self.assertSetEqual(expected_called_emails, actual_called_emails)
 
     @freeze_time("2020-01-01 01:02:03")
-    @patch.object(tasks.invite_single, "send_email")
+    @patch.object(tasks.invite, "send_email")
     def test_invite_single(self, mock_send_email):
         atm = utcnow()
 

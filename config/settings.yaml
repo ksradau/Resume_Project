@@ -3,7 +3,6 @@ default:
   DATABASE_URL: ""
   DEBUG: true
   SECRET_KEY: ""
-  SENTRY_DSN: ""
   SITE_ID: 0
   CELERY_BEAT_INVITATION: -1
   CELERY_BROKER_URL: ""

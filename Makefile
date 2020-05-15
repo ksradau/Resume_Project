@@ -84,6 +84,7 @@ test:
 		src/manage.py test ${TEST_PARAMS} \
 			apps \
 			project \
+			periodic \
 
 	${RUN} coverage report
 	${RUN} isort --virtual-env ${VENV} --recursive --check-only ${HERE}

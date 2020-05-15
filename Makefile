@@ -34,7 +34,7 @@ run: static
 
 .PHONY: beat
 beat:
-	PYTHONPATH=${PYTHONPATH} \
+	set PYTHONPATH=${PYTHONPATH}
 	${RUN} celery worker \
 		--app periodic.app -B \
 		--config periodic.celeryconfig \

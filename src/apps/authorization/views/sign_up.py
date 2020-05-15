@@ -11,6 +11,7 @@ class SignUpView(FormView):
     form_class = SignUpForm
     success_url = reverse_lazy("authorization:sign_up_confirmed")
 
+    # если форма валидная, FormView гарантирует, что будет выполнено все что есть в функции form_valid
     @transaction.atomic()
     def form_valid(self, form):
         user = form.save()

@@ -137,7 +137,7 @@ LOGIN_URL = reverse_lazy("authorization:sign_in")
 LOGIN_REDIRECT_URL = reverse_lazy("authorization:me")
 
 SITE_ID = _settings.SITE_ID
-"""
+
 EMAIL_HOST = _settings.EMAIL_HOST
 EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
 EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
@@ -145,4 +145,9 @@ EMAIL_PORT = _settings.EMAIL_PORT
 EMAIL_USE_SSL = _settings.EMAIL_USE_SSL
 EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
 
-EMAIL_FROM = _settings.EMAIL_FROM """
+EMAIL_FROM = _settings.EMAIL_FROM
+
+
+
+#ENVVAR_PREFIX_FOR_DYNACONF=SD  если удалить то префикс будет DYNACONF   профайлинг
+# set DY=1 make run

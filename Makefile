@@ -36,10 +36,10 @@ run: static
 beat:
 	set PYTHONPATH=${PYTHONPATH}
 	${RUN} celery worker \
-		--app periodic.app -B \
+		--app periodic.app -b \
 		--config periodic.celeryconfig \
 		--workdir ${HERE}/src \
-		--loglevel=info
+		--loglevel=debug
 
 
 .PHONY: docker

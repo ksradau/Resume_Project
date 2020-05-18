@@ -26,6 +26,7 @@ heroku:
     - localhost
   DEBUG: false
   CELERY_BEAT_INVITATION: 900
+  SITE_ID: 1
 
 
 test:

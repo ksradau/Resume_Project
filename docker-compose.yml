@@ -1,0 +1,50 @@
+version: "3.3"
+services:
+  ksradau-web:
+    image: ksradau-web
+    container_name: ksradau-web
+    build: ./
+    ports:
+      - "8000:80"
+    depends_on:
+      - ksradau-db
+      - ksradau-beat
+    environment:
+      ENV_FOR_DYNACONF: docker
+      PORT: 80
+  ksradau-beat:
+    image: ksradau-web
+    container_name: ksradau-beat
+    build: .
+    ports:
+      - "8001:80"
+    depends_on:
+      - ksradau-broker
+      - ksradau-db
+    entrypoint: ["docker/run-beat.sh"]
+    environment:
+      ENV_FOR_DYNACONF: docker
+      PORT: 80
+  ksradau-broker:
+    container_name: ksradau-redis
+    image: redis:latest
+  ksradau-db:
+    container_name: ksradau-db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: ks123
+      POSTGRES_PASSWORD: ks123
+      POSTGRES_DB: ksradau
+    ports:
+      - "5433:5432"
+  ksradau-dba:
+    container_name: ksradau-dba
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:

@@ -41,3 +41,11 @@ travis:
   DEBUG: 1
   SECRET_KEY: "1"
   SITE_ID: 1
+
+docker:
+  CELERY_BEAT_INVITATION: 30
+  CELERY_BROKER_URL: "redis://ksradau-broker"
+  DATABASE_URL: "postgresql://ks123:ks123@ksradau-db:5432/ksradau"
+  DEBUG: 0
+  SECRET_KEY: "1"
+  SITE_ID: 1

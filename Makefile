@@ -36,7 +36,7 @@ run: static
 beat:
 	set PYTHONPATH=${PYTHONPATH}
 	${RUN} celery worker \
-		--app periodic.app -b \
+		--app periodic.app -B \
 		--config periodic.celeryconfig \
 		--workdir ${HERE}/src \
 		--loglevel=debug
@@ -104,18 +104,12 @@ venv:
 
 .PHONY: clean
 clean:
-	${PY} coverage erase
-	rm -rf htmlcov
-	find . -type d -name "__pycache__" | xargs rm -rf
-	rm -rf ./.static/
+	${RUN} coverage erase
 
 
 .PHONY: clean-docker
 clean-docker:
-	docker ps --quiet --all | xargs docker stop || true
-	docker ps --quiet --all | xargs docker rm || true
-	docker volume ls --quiet | xargs docker volume rm || true
-	docker-compose rm --force || true
+	echo 1
 
 
 .PHONY: wipe

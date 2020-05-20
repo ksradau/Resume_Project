@@ -1,7 +1,7 @@
-HERE := .
+HERE := $(shell pwd)
 VENV := $(shell pipenv --venv)
 PYTHONPATH := ${HERE}/src
-TEST_PARAMS := --verbosity 2 --pythonpath ${PYTHONPATH}
+TEST_PARAMS := --verbosity 2 --pythonpath "${PYTHONPATH}"
 PSQL_PARAMS := --host=localhost --username=ksradau --password
 
 
@@ -34,12 +34,12 @@ run: static
 
 .PHONY: beat
 beat:
-	set PYTHONPATH=${PYTHONPATH}
+	PYTHONPATH=${PYTHONPATH} \
 	${RUN} celery worker \
 		--app periodic.app -B \
 		--config periodic.celeryconfig \
 		--workdir ${HERE}/src \
-		--loglevel=debug
+		--loglevel=info
 
 
 .PHONY: docker
@@ -79,12 +79,12 @@ sh:
 
 .PHONY: test
 test:
-	set ENV_FOR_DYNACONF=test
+	ENV_FOR_DYNACONF=test \
 	${RUN} coverage run \
 		src/manage.py test ${TEST_PARAMS} \
-			apps \
-			project \
+			applications \
 			periodic \
+			project \
 
 	${RUN} coverage report
 	${RUN} isort --virtual-env ${VENV} --recursive --check-only ${HERE}
@@ -105,11 +105,17 @@ venv:
 .PHONY: clean
 clean:
 	${RUN} coverage erase
+	rm -rf htmlcov
+	find . -type d -name "__pycache__" | xargs rm -rf
+	rm -rf ./.static/
 
 
 .PHONY: clean-docker
 clean-docker:
-	echo 1
+	docker ps --quiet --all | xargs docker stop || true
+	docker ps --quiet --all | xargs docker rm || true
+	docker volume ls --quiet | xargs docker volume rm || true
+	docker-compose rm --force || true
 
 
 .PHONY: wipe

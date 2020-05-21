@@ -1,3 +1,3 @@
-release: make migrate
-web: gunicorn --config gunicorn.conf.py project.wsgi:application
+web: python src/manage.py runserver 0.0.0.0:$PORT
+release: python src/manage.py migrate
 worker: make beat

@@ -1,3 +1,3 @@
 release: make migrate
-web: bash run-gunicorn.sh
+web: gunicorn --config gunicorn.conf.py project.wsgi:application
 worker: make beat

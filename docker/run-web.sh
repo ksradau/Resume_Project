@@ -12,6 +12,6 @@ PROJECT_DIR="$(cd "${DOCKER_SCRIPTS}/.." >/dev/null 2>&1 && pwd)"
 
 cd "${PROJECT_DIR}" || exit 1
 
-pipenv run python src/manage.py runserver localhost:80
+pipenv "${PROJECT_DIR}/run-gunicorn.sh"
 
 echo "DONE: RUNNING WEB"

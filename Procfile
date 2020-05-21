@@ -1,3 +1,3 @@
 release: make migrate
-web: ./run-gunicorn.sh
+web: bash run-gunicorn.sh
 worker: make beat

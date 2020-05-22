@@ -8,4 +8,7 @@ RUN docker/deploy-web.sh
 
 EXPOSE 80
 
+RUN chmod +x ./docker*
+RUN chmod +x ./run-gunicorn.sh
+
 ENTRYPOINT ["docker/run-web.sh"]

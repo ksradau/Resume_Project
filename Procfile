@@ -1,3 +1,3 @@
 release: make migrate
-web: chmod +x ./run-gunicorn.sh
+web: python src/manage.py runserver 0.0.0.0:$PORT
 worker: make beat

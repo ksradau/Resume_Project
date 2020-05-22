@@ -1,5 +1,9 @@
 default:
   ALLOWED_HOSTS: []
+  AWS_ACCESS_KEY_ID: ""
+  AWS_LOCATION: ""
+  AWS_S3_REGION_NAME: ""
+  AWS_SECRET_ACCESS_KEY: ""
   DATABASE_URL: ""
   DEBUG: true
   SECRET_KEY: ""
@@ -15,11 +19,15 @@ default:
   EMAIL_USE_TLS: 0
 
 development:
+  AWS_LOCATION: "development"
+  AWS_S3_REGION_NAME: "us-east-1"
   DEBUG: true
   SITE_ID: 1
   CELERY_BEAT_INVITATION: 30
 
 heroku:
+  AWS_LOCATION: "heroku"
+  AWS_S3_REGION_NAME: "us-east-1"
   ALLOWED_HOSTS:
     - .ksradau.herokuapp.com
     - 127.0.0.1
@@ -43,6 +51,8 @@ travis:
   SITE_ID: 1
 
 docker:
+  AWS_LOCATION: "docker"
+  AWS_S3_REGION_NAME: "us-east-1"
   CELERY_BEAT_INVITATION: 30
   CELERY_BROKER_URL: "redis://ksradau-broker"
   DATABASE_URL: "postgresql://ks123:ks123@ksradau-db:5432/ksradau"

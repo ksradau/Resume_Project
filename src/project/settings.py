@@ -152,3 +152,15 @@ EMAIL_FROM = _settings.EMAIL_FROM
 
 #ENVVAR_PREFIX_FOR_DYNACONF=SD  если удалить то префикс будет DYNACONF   профайлинг
 # set DY=1 make run
+
+
+AWS_ACCESS_KEY_ID = _settings.AWS_ACCESS_KEY_ID
+AWS_DEFAULT_ACL = "public-read"
+AWS_LOCATION = _settings.AWS_LOCATION
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_ADDRESSING_STYLE = "path"
+AWS_S3_REGION_NAME = _settings.AWS_S3_REGION_NAME
+AWS_SECRET_ACCESS_KEY = _settings.AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME = "ksradau"
+#add to secrets
+

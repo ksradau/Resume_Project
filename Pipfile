@@ -26,3 +26,5 @@ celery = {extras = ["redis"],version = "*"}
 redis = "*"
 freezegun = "*"
 gunicorn = "*"
+boto3 = "*"
+django-storages = "*"

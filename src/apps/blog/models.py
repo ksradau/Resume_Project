@@ -2,6 +2,9 @@ from django.contrib.auth import get_user_model
 from django.db import models as m
 from django.urls import reverse_lazy
 
+import uuid
+from storages.backends.s3boto3 import S3Boto3Storage
+
 User = get_user_model()
 
 
@@ -22,3 +25,9 @@ class Comment(m.Model):
     nr_dislikes = m.IntegerField(null=True, blank=True)
 
     message = m.TextField()
+
+
+class Photo(m.Model):
+    uuid = m.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    post = m.ForeignKey(BlogPost, on_delete=m.CASCADE, related_name="photos")
+    original = m.FileField(storage=S3Boto3Storage())

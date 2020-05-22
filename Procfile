@@ -1,3 +1,4 @@
 release: make migrate
-web: python src/manage.py runserver 0.0.0.0:$PORT
+web: ./run-gunicorn.sh
 worker: make beat
+

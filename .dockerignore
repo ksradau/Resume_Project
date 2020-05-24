@@ -1,0 +1,13 @@
+**/*.swp
+.cache/
+.coverage
+.coveragerc
+.git/
+.gitignore
+.idea/
+.isort.cfg
+.static/
+.travis.yml
+Procfile
+docker-compose.yml
+src/celerybeat-schedule

@@ -9,6 +9,7 @@ default:
   SECRET_KEY: ""
   SITE_ID: 0
   CELERY_BEAT_INVITATION: -1
+  CELERY_BEAT_SMILE: 60
   CELERY_BROKER_URL: ""
   EMAIL_FROM: ""
   EMAIL_HOST: ""
@@ -24,6 +25,7 @@ development:
   DEBUG: true
   SITE_ID: 1
   CELERY_BEAT_INVITATION: 30
+  CELERY_BEAT_SMILE: 60
 
 heroku:
   AWS_LOCATION: "heroku"
@@ -34,6 +36,7 @@ heroku:
     - localhost
   DEBUG: false
   CELERY_BEAT_INVITATION: 900
+  CELERY_BEAT_SMILE: 60
   SITE_ID: 1
 
 
@@ -54,6 +57,7 @@ docker:
   AWS_LOCATION: "docker"
   AWS_S3_REGION_NAME: "us-east-1"
   CELERY_BEAT_INVITATION: 30
+  CELERY_BEAT_SMILE: 60
   CELERY_BROKER_URL: "redis://ksradau-broker"
   DATABASE_URL: "postgresql://ksradau:123@ksradau-db:5432/ksradau"
   DEBUG: 0

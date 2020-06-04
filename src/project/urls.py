@@ -12,4 +12,5 @@ urlpatterns = [
     path("education/", include("apps.education.urls")),
     path("blog/", include("apps.blog.urls")),
     path("o/", include("apps.authorization.urls")),
+    path("v1/", include("apps.api.impl.v1.urls"))
 ]

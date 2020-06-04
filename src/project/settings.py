@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "apps.education",
     "apps.blog.apps.BlogConfig",
     "rest_framework",
+    "apps.api"
 ]
 
 MIDDLEWARE = [

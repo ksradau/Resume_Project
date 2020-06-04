@@ -6,16 +6,16 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework.permissions import AllowAny
 
-from applications.api.views import ObtainAuthToken
+from apps.api.views import ObtainAuthToken
 
 # TODO: move to views
 schema_view = get_schema_view(
     openapi.Info(
-        title="Obliviscor API",
+        title="Ksradau API",
         default_version="v1",
-        description="The API is the API",
+        description="API for my project",
         terms_of_service="TBD",
-        contact=openapi.Contact(email=settings.EMAIL_FROM),
+        contact=openapi.Contact(email="sushei.ekaterina@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -23,7 +23,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path("", include("applications.api.impl.urls")),
+    path("", include("apps.api.impl.urls")),
     path("obtain_auth_token/", ObtainAuthToken.as_view(), name="obtain_auth_token"),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

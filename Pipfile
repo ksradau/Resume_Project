@@ -11,6 +11,7 @@ coverage = "*"
 ipython = "*"
 isort = "*"
 pudb = "*"
+pillow = "*"
 
 [packages]
 django = {extras = ["bcrypt"],version = "*"}

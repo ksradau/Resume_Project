@@ -11,3 +11,5 @@
 Procfile
 docker-compose.yml
 src/celerybeat-schedule
+serverless/node_modules
+serverless/.serverless

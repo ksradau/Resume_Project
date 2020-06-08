@@ -18,7 +18,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + INTERNAL_IPS + ["localhost"]
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + INTERNAL_IPS + ["localhost"] + ["610ee85808ca.ngrok.io"]
 
 
 INSTALLED_APPS = [
@@ -111,6 +111,13 @@ PASSWORD_HASHERS = [
 ]
 
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
+
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
@@ -166,4 +173,4 @@ AWS_STORAGE_BUCKET_NAME = "resizeksbucket"
 #add to secrets
 
 CELERY_BEAT_SMILE = _settings.CELERY_BEAT_SMILE
-
+TG = _settings.TG

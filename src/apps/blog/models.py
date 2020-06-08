@@ -31,3 +31,4 @@ class Photo(m.Model):
     uuid = m.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     post = m.ForeignKey(BlogPost, on_delete=m.CASCADE, related_name="photos")
     original = m.FileField(storage=S3Boto3Storage())
+    thumbnail = m.FileField(storage=S3Boto3Storage(), null=True, blank=True)

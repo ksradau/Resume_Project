@@ -20,6 +20,7 @@ default:
   EMAIL_USE_TLS: 0
 
 development:
+  TG: "1218795616:AAGiTwbf6L3fZgCEeRKwIA4TK9VEFXvkQDs"
   AWS_LOCATION: "development"
   AWS_S3_REGION_NAME: "us-east-1"
   DEBUG: true

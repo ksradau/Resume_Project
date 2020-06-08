@@ -2,11 +2,12 @@ from django.conf import settings
 from django.urls import include
 from django.urls import path
 from django.urls import re_path
+from django.views.decorators.csrf import csrf_exempt
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework.permissions import AllowAny
 
-from apps.api.views import ObtainAuthToken
+from apps.api.views import ObtainAuthToken, TelegramView
 
 # TODO: move to views
 schema_view = get_schema_view(
@@ -24,6 +25,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("", include("apps.api.impl.urls")),
+    path("tg/", csrf_exempt(TelegramView.as_view())),
     path("obtain_auth_token/", ObtainAuthToken.as_view(), name="obtain_auth_token"),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

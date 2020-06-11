@@ -18,9 +18,10 @@ default:
   EMAIL_PORT: 0
   EMAIL_USE_SSL: 0
   EMAIL_USE_TLS: 0
+  TG: ""
 
 development:
-  TG: "1218795616:AAGiTwbf6L3fZgCEeRKwIA4TK9VEFXvkQDs"
+  TG: ""
   AWS_LOCATION: "development"
   AWS_S3_REGION_NAME: "us-east-1"
   DEBUG: true
@@ -39,7 +40,7 @@ heroku:
   CELERY_BEAT_INVITATION: 900
   CELERY_BEAT_SMILE: 86400
   SITE_ID: 1
-
+  TG: ""
 
 test:
   EMAIL_FROM: "test@test.name"

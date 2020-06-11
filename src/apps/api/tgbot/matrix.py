@@ -24,10 +24,5 @@ def matrix(n):
     if n % 2 == 1:
         list[n // 2][n // 2] = n ** 2
 
-    for i in range(n):
-        print()
-        for j in range(n):
-            print(list[i][j], end=' ')
+    return list
 
-
-matrix(5)

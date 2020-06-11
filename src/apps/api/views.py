@@ -5,6 +5,8 @@ from django.http import HttpResponse
 import requests
 from project import settings
 
+from apps.api.tgbot import matrix
+
 
 class ObtainAuthToken(_DrfObtainAuthToken):
     swagger_schema = None
@@ -18,7 +20,15 @@ class TelegramView(View):
             text = message["text"]
             chat_id = message["chat"]["id"]
 
-            r = requests.post(f"https://api.telegram.org/bot{settings.TG}/sendMessage", json={"chat_id": chat_id, "text": text.upper()})
+            if text.isdigit() is True:
+                number = int(text)
+                r = requests.post(
+                    f"https://api.telegram.org/bot{settings.TG}/sendMessage",
+                    json={"chat_id": chat_id, "text": matrix(number)})
+            else:
+                r = requests.post(
+                    f"https://api.telegram.org/bot{settings.TG}/sendMessage",
+                    json={"chat_id": chat_id, "text": "Type integer"})
         except Exception as err:
             print(err)
         return HttpResponse()

@@ -18,7 +18,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + INTERNAL_IPS + ["localhost"] + ["610ee85808ca.ngrok.io"]
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + INTERNAL_IPS + ["localhost"] + ["ebbe597677d9.ngrok.io"]
 
 
 INSTALLED_APPS = [
@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     "apps.education",
     "apps.blog.apps.BlogConfig",
     "rest_framework",
-    "apps.api"
+    "apps.api",
+    "rest_framework.authtoken",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [

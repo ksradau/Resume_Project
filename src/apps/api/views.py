@@ -22,10 +22,10 @@ class TelegramView(View):
 
             if text.isdigit() is True:
                 number = int(text)
-                output_for_tg = matrix(number)
+                output_for_tg = str(matrix(number)) + "matrix"
                 r = requests.post(
                     f"https://api.telegram.org/bot{settings.TG}/sendMessage",
-                    json={"chat_id": chat_id, "text": str(output_for_tg)})
+                    json={"chat_id": chat_id, "text": output_for_tg})
             else:
                 r = requests.post(
                     f"https://api.telegram.org/bot{settings.TG}/sendMessage",

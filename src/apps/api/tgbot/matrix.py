@@ -25,6 +25,3 @@ def matrix(n):
         list[n // 2][n // 2] = n ** 2
 
     return list
-
-
-print(matrix(5))

@@ -20,16 +20,16 @@ class TelegramView(View):
             text = message["text"]
             chat_id = message["chat"]["id"]
 
-            if text.isdigit() is True:
+            if text.isdigit():
                 number = int(text)
                 output_for_tg = str(matrix(number)) + "matrix"
                 r = requests.post(
                     f"https://api.telegram.org/bot{settings.TG}/sendMessage",
-                    json={"chat_id": chat_id, "text": output_for_tg})
+                    json={"chat_id": chat_id, "text": "It's integer"})
             else:
                 r = requests.post(
                     f"https://api.telegram.org/bot{settings.TG}/sendMessage",
-                    json={"chat_id": chat_id, "text": "Type integer"})
+                    json={"chat_id": chat_id, "text": "It's text"})
         except Exception as err:
             print(err)
         return HttpResponse()

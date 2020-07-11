@@ -5,7 +5,7 @@ from django.http import HttpResponse
 import requests
 from project import settings
 
-from apps.api.tgbot.matrix import matrix
+from apps.api.tgbot.matrix import matrix, beautiful_print
 
 
 class ObtainAuthToken(_DrfObtainAuthToken):
@@ -45,8 +45,7 @@ class MatrixTGView(View):
 
             if text.isdigit():
                 number = int(text)
-                output_for_tg = str(matrix(number))
-                output_for_tg = output_for_tg + "1111"
+                output_for_tg = matrix(number)
                 r = requests.post(
                     f"https://api.telegram.org/bot{settings.TG_MATRIX}/sendMessage",
                     json={"chat_id": chat_id, "text": output_for_tg})

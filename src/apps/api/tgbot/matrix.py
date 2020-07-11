@@ -24,4 +24,14 @@ def matrix(n):
     if n % 2 == 1:
         list[n // 2][n // 2] = n ** 2
 
-    return list
+    s = beautiful_print(list)
+
+    return s
+
+
+def beautiful_print(list):
+    join_rows = []
+    for row in list:
+        join_rows.append(' '.join(str(num) for num in row))
+    join_lines = "\n".join(line for line in join_rows)
+    return join_lines

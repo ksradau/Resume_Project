@@ -19,9 +19,11 @@ default:
   EMAIL_USE_SSL: 0
   EMAIL_USE_TLS: 0
   TG: ""
+  TG_MATRIX: ""
 
 development:
   TG: ""
+  TG_MATRIX: ""
   AWS_LOCATION: "development"
   AWS_S3_REGION_NAME: "us-east-1"
   DEBUG: true
@@ -41,6 +43,7 @@ heroku:
   CELERY_BEAT_SMILE: 86400
   SITE_ID: 1
   TG: ""
+  TG_MATRIX: ""
 
 test:
   EMAIL_FROM: "test@test.name"

@@ -7,9 +7,10 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework.permissions import AllowAny
 
-from apps.api.views import ObtainAuthToken, TelegramView
+from apps.api.views import ObtainAuthToken, TelegramView, MatrixTGView
 
 # TODO: move to views
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Ksradau API",
@@ -26,6 +27,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("", include("apps.api.impl.urls")),
     path("tg/", csrf_exempt(TelegramView.as_view())),
+    path("tg-matrix/", csrf_exempt(MatrixTGView.as_view())),
     path("obtain_auth_token/", ObtainAuthToken.as_view(), name="obtain_auth_token"),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

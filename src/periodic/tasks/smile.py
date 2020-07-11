@@ -5,7 +5,7 @@ from project.utils.xmail import send_email
 from datetime import datetime
 from delorean import Delorean
 
-THE_END = Delorean(datetime=datetime(2020, 9, 1, 0, 0), timezone='UTC')
+THE_END = Delorean(datetime=datetime(2020, 8, 1, 0, 0), timezone='UTC')
 
 @app.task
 def send_smile():

@@ -26,3 +26,5 @@ def matrix(n):
 
     return list
 
+
+print(matrix(5))

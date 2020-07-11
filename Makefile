@@ -1,7 +1,7 @@
-HERE := .
+HERE := $(shell pwd)
 VENV := $(shell pipenv --venv)
 PYTHONPATH := ${HERE}/src
-TEST_PARAMS := --verbosity 2 --pythonpath ${PYTHONPATH}
+TEST_PARAMS := --verbosity 2 --pythonpath "${PYTHONPATH}"
 PSQL_PARAMS := --host=localhost --username=ksradau --password
 
 
@@ -79,10 +79,11 @@ sh:
 
 .PHONY: test
 test:
-	set ENV_FOR_DYNACONF=test
+	ENV_FOR_DYNACONF=test \
 	${RUN} coverage run \
 		src/manage.py test ${TEST_PARAMS} \
-			apps \
+			applications \
+			periodic \
 			project \
 
 	${RUN} coverage report
@@ -103,7 +104,7 @@ venv:
 
 .PHONY: clean
 clean:
-	${PY} coverage erase
+	${RUN} coverage erase
 	rm -rf htmlcov
 	find . -type d -name "__pycache__" | xargs rm -rf
 	rm -rf ./.static/
@@ -111,10 +112,10 @@ clean:
 
 .PHONY: clean-docker
 clean-docker:
-	docker ps --quiet --all | xargs docker stop || true
-	docker ps --quiet --all | xargs docker rm || true
-	docker volume ls --quiet | xargs docker volume rm || true
+	docker-compose stop || true
+	docker-compose down || true
 	docker-compose rm --force || true
+	docker system prune --force
 
 
 .PHONY: wipe

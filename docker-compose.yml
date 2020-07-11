@@ -1,0 +1,45 @@
+version: "3.3"
+
+services:
+  ksradau-web:
+    build: ./
+    container_name: ksradau-web
+    depends_on:
+      - ksradau-db
+      - ksradau-beat
+    entrypoint: ["docker/run-web.sh"]
+    environment:
+      PORT: 80
+    image: ksradau-web
+    ports:
+      - "8000:80"
+  ksradau-beat:
+    container_name: ksradau-beat
+    depends_on:
+      - ksradau-broker
+      - ksradau-db
+    entrypoint: ["docker/run-beat.sh"]
+    image: sidorov-dev-web
+  ksradau-broker:
+    container_name: ksradau-redis
+    image: redis:latest
+  ksradau-db:
+    container_name: ksradau-db
+    environment:
+      POSTGRES_USER: ksradau
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: ksradau
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    restart: always
+  ksradau-dba:
+    container_name: ksradau-dba
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:

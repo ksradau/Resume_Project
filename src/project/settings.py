@@ -14,11 +14,12 @@ SECRET_KEY = _settings.SECRET_KEY
 
 DEBUG = _settings.DEBUG
 
-ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
-
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + INTERNAL_IPS + ["localhost"]
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -27,11 +28,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "apps.authorization.apps.AuthConfig",
     "apps.index",
     "apps.resume",
     "apps.education",
     "apps.blog.apps.BlogConfig",
     "rest_framework",
+    "apps.api",
+    "rest_framework.authtoken",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -43,6 +49,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.sites.middleware.CurrentSiteMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -98,6 +105,20 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+]
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
 
 LANGUAGE_CODE = "en-us"
 
@@ -122,3 +143,36 @@ STATIC_URL = "/static/"  # путь от которого все отсчиты�
 
 # LOGIN_URL = reverse_lazy("onboarding:sign_in")
 # LOGIN_REDIRECT_URL = reverse_lazy("blog:all_posts")
+
+LOGIN_URL = reverse_lazy("authorization:sign_in")
+LOGIN_REDIRECT_URL = reverse_lazy("authorization:me")
+
+SITE_ID = _settings.SITE_ID
+
+EMAIL_HOST = _settings.EMAIL_HOST
+EMAIL_HOST_PASSWORD = _settings.EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = _settings.EMAIL_HOST_USER
+EMAIL_PORT = _settings.EMAIL_PORT
+EMAIL_USE_SSL = _settings.EMAIL_USE_SSL
+EMAIL_USE_TLS = _settings.EMAIL_USE_TLS
+
+EMAIL_FROM = _settings.EMAIL_FROM
+
+
+
+#ENVVAR_PREFIX_FOR_DYNACONF=SD  если удалить то префикс будет DYNACONF   профайлинг
+# set DY=1 make run
+
+
+AWS_ACCESS_KEY_ID = _settings.AWS_ACCESS_KEY_ID
+AWS_DEFAULT_ACL = "public-read"
+AWS_LOCATION = _settings.AWS_LOCATION
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_ADDRESSING_STYLE = "path"
+AWS_S3_REGION_NAME = _settings.AWS_S3_REGION_NAME
+AWS_SECRET_ACCESS_KEY = _settings.AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME = "resizeksbucket"
+#add to secrets
+
+CELERY_BEAT_SMILE = _settings.CELERY_BEAT_SMILE
+TG = _settings.TG
